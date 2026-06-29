@@ -25,13 +25,14 @@ export function StandingsTable({ standings, limit }) {
             return (
               <tr
                 key={team.team_name}
-                className={`border-b transition-colors ${
+                className={`border-b transition-colors relative ${
                   isFlorida 
-                    ? 'bg-[#c7a86b]/20 hover:bg-[#c7a86b]/25 border-[#c7a86b]/30' :
+                    ? 'border-white/20' :
                   isRival 
                     ? 'bg-red-500/8 hover:bg-red-500/15 border-red-500/20' :
                   'hover:bg-white/4 border-white/4'
                 }`}
+                style={isFlorida ? { background: 'linear-gradient(90deg, rgba(255,255,255,0.02) 0%, rgba(255,255,255,0.1) 50%, rgba(255,255,255,0.02) 100%)' } : {}}
               >
                 {/* Position */}
                 <td className="px-1 py-1.5 text-center">

@@ -91,43 +91,43 @@ export default function Home() {
             w-full
             max-w-7xl
             flex
-            flex-col
-            lg:flex-row
+            flex-row
             items-center
             justify-center
-            gap-4
+            gap-1
+            sm:gap-4
             lg:gap-8
           "
         >
           {/* FLORIDA */}
-          <div className="flex flex-col items-center text-center lg:w-5/12 animate-fade-in-up animate-delay-200">
+          <div className="flex flex-col items-center justify-center text-center w-5/12 lg:w-5/12 animate-fade-in-up animate-delay-200">
             <img
               src="/images/florida.svg"
               alt="Florida"
               className="
-    w-24 h-24 sm:w-32 sm:h-32 md:w-40 md:h-40 lg:w-48 lg:h-48 xl:w-56 xl:h-56
+    w-16 h-16 sm:w-24 sm:h-24 md:w-40 md:h-40 lg:w-48 lg:h-48 xl:w-56 xl:h-56
     object-contain
     drop-shadow-[0_0_30px_rgba(255,255,255,0.2)]
   "
             />
 
-            <h2 className="text-2xl sm:text-4xl lg:text-5xl xl:text-6xl text-white uppercase italic">
+            <h2 className="text-sm sm:text-2xl md:text-4xl lg:text-5xl xl:text-6xl text-white uppercase italic mt-1 sm:mt-2">
               FLORIDA
             </h2>
           </div>
 
           {/* VS */}
-          <div className="flex items-center justify-center lg:w-2/12 shrink-0 relative animate-fade-in-up animate-delay-300">
+          <div className="flex items-center justify-center w-2/12 lg:w-2/12 shrink-0 relative animate-fade-in-up animate-delay-300">
             {/* Golden glow backdrop */}
             <div
               className="absolute inset-0 flex items-center justify-center"
               style={{
-                filter: "blur(60px)",
+                filter: "blur(40px)",
                 opacity: 0.6,
               }}
             >
               <div
-                className="w-24 h-24 sm:w-32 sm:h-32 md:w-40 md:h-40 lg:w-48 lg:h-48 xl:w-56 xl:h-56 rounded-full"
+                className="w-16 h-16 sm:w-24 sm:h-24 md:w-40 md:h-40 lg:w-48 lg:h-48 xl:w-56 xl:h-56 rounded-full"
                 style={{
                   background:
                     "radial-gradient(circle, #c7a86b 0%, transparent 70%)",
@@ -137,8 +137,9 @@ export default function Home() {
             <h1
               className="
                 font-anybody
-                text-[50px]
-                sm:text-[70px]
+                text-[28px]
+                sm:text-[50px]
+                md:text-[70px]
                 lg:text-[100px]
                 xl:text-[140px]
                 text-white
@@ -153,18 +154,18 @@ export default function Home() {
           </div>
 
           {/* CHW */}
-          <div className="flex flex-col items-center text-center lg:w-5/12 animate-fade-in-up animate-delay-400">
+          <div className="flex flex-col items-center justify-center text-center w-5/12 lg:w-5/12 animate-fade-in-up animate-delay-400">
             <img
               src="/images/chw.png"
               alt="Chile Wanderers"
               className="
-    w-20 h-20 sm:w-32 sm:h-32 md:w-40 md:h-40 lg:w-48 lg:h-48 xl:w-56 xl:h-56
+    w-16 h-16 sm:w-24 sm:h-24 md:w-40 md:h-40 lg:w-48 lg:h-48 xl:w-56 xl:h-56
     object-contain
     drop-shadow-[0_0_18px_#fe97b5]
   "
             />
 
-            <h2 className="text-2xl sm:text-4xl lg:text-5xl xl:text-6xl text-black uppercase italic">
+            <h2 className="text-sm sm:text-2xl md:text-4xl lg:text-5xl xl:text-6xl text-black uppercase italic mt-1 sm:mt-2">
               C.WANDERERS
             </h2>
           </div>

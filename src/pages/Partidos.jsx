@@ -39,11 +39,36 @@ export default function Partidos() {
       />
 
       <div className="max-w-5xl mx-auto">
-        <div className="px-3 sm:px-4 py-2 sm:py-3 border border-[#c7a86b]/10 bg-neutral-900/95 backdrop-blur-sm rounded-xl mb-4 sm:mb-6">
+        <div
+          className="relative px-3 sm:px-4 py-2 sm:py-3 border border-[#c7a86b]/25 mb-4 sm:mb-6 backdrop-blur-sm overflow-hidden"
+          style={{
+            background: `
+      radial-gradient(100% 100% at 50% 0%, rgba(255,255,255,0.08) 0%, transparent 100%),
+      linear-gradient(180deg, rgba(23,23,23,0.98) 0%, rgba(10,10,10,0.98) 100%)
+    `,
+          }}
+        >
+          {/* Esquina superior izquierda */}
+          <div className="absolute top-0 left-0 w-2 h-2 border-t-2 border-l-2 border-[#c7a86b]/50" />
+
+          {/* Esquina superior derecha */}
+          <div className="absolute top-0 right-0 w-2 h-2 border-t-1 border-r-1 border-[#c7a86b]/50" />
+
+          {/* Esquina inferior izquierda */}
+          <div className="absolute bottom-0 left-0 w-2 h-2 border-b-2 border-l-2 border-[#c7a86b]/50" />
+
+          {/* Esquina inferior derecha */}
+          <div className="absolute bottom-0 right-0 w-2 h-2 border-b-2 border-r-2 border-[#c7a86b]/50" />
+
+          {/* Contenido */}
           <div className="flex flex-wrap items-center justify-between gap-3">
-            <span className="text-[9px] sm:text-xs font-bold text-neutral-400 uppercase tracking-wider">
-              Ordenar por
-            </span>
+            <div className='flex gap-2 items-center text-[#c7a86b] sm:py-1 text-[8px] sm:text-[10px]'>
+              <span aria-hidden="true" className="sort-label-mark"></span>
+              <span className="font-bold uppercase tracking-wider">
+                Ordenar por
+              </span>
+            </div>
+
             <div className="flex flex-wrap gap-1 sm:gap-1.5">
               {filters.map((f) => {
                 const isSelected = filter === f.id
@@ -52,13 +77,35 @@ export default function Partidos() {
                     key={f.id}
                     onClick={() => setFilter(f.id)}
                     className={`
-                      px-1.5 sm:px-2 py-0.5 sm:py-1 text-[7px] sm:text-[9px] font-bold uppercase tracking-wider
-                      transition-all duration-200 border shrink-0
-                      ${isSelected
-                        ? 'bg-[#c7a86b]/15 text-[#c7a86b] border-[#c7a86b] shadow-[0_0_6px_rgba(199,168,107,0.12)]'
-                        : 'bg-neutral-900/50 text-neutral-400 border-white/10 hover:border-[#c7a86b]/40 hover:text-[#c7a86b]/80 hover:bg-[#c7a86b]/5'
+    px-1.5 sm:px-2 py-0.5 sm:py-1 text-[8px] sm:text-[9px]
+    font-bold uppercase tracking-wider
+    transition-colors duration-200 border shrink-0 rounded-sm
+
+    hover:-translate-y-[1px]
+    hover:shadow-[0_6px_14px_rgba(199,168,107,0.25)]
+    hover:border-[#c7a86b]/60
+    hover:brightness-110
+
+    ${isSelected
+                        ? 'text-black border-[#c7a86b] shadow-[0_0_14px_rgba(199,168,107,0.45)] hover:shadow-[0_0_18px_rgba(199,168,107,0.55)]'
+                        : 'bg-black text-neutral-400 border-[#c7a86b]/40 hover:bg-[#c7a86b]/5'
                       }
-                    `}
+  `}
+                    style={
+                      isSelected
+                        ? {
+                          background: `
+            linear-gradient(
+              180deg,
+              color-mix(in srgb, #c7a86b 95%, white) 0%,
+              #c7a86b 65%,
+              color-mix(in srgb, #c7a86b 75%, black) 100%
+            )
+          `,
+                          boxShadow: "0 0 16px rgba(199,168,107,0.35)"
+                        }
+                        : undefined
+                    }
                   >
                     {f.label}
                   </button>

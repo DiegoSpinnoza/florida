@@ -103,8 +103,7 @@ export default function Tabla() {
           className="relative px-3 sm:px-4 py-2 sm:py-3 border border-[#c7a86b]/25 mb-4 sm:mb-6 backdrop-blur-sm overflow-hidden"
           style={{
             background: `
-      radial-gradient(circle at top, rgba(199,168,107,0.05) 0%, transparent 60%),
-      radial-gradient(circle at bottom right, rgba(199,168,107,0.025) 0%, transparent 65%),
+      radial-gradient(100% 100% at 50% 0%, rgba(255,255,255,0.08) 0%, transparent 100%),
       linear-gradient(180deg, rgba(23,23,23,0.98) 0%, rgba(10,10,10,0.98) 100%)
     `,
           }}
@@ -140,7 +139,7 @@ export default function Tabla() {
                     className={`
     px-1.5 sm:px-2 py-0.5 sm:py-1 text-[8px] sm:text-[9px]
     font-bold uppercase tracking-wider
-    transition-all duration-200 border shrink-0 rounded-sm
+    transition-colors duration-200 border shrink-0 rounded-sm
 
     hover:-translate-y-[1px]
     hover:shadow-[0_6px_14px_rgba(199,168,107,0.25)]
@@ -176,7 +175,12 @@ export default function Tabla() {
           </div>
         </div>
 
-        <div className="bg-neutral-900/70 border border-[#c7a86b]/20 rounded-2xl overflow-hidden shadow-2xl">
+        <div 
+          className="border border-[#c7a86b]/20 rounded-2xl overflow-hidden shadow-[0_8px_30px_rgba(199,168,107,0.08)] relative"
+          style={{
+            background: `linear-gradient(145deg, rgba(255,255,255,0.05) 0%, rgba(23,23,23,0.9) 40%, rgba(10,10,10,0.95) 100%)`
+          }}
+        >
 
           {/* Main header */}
           <div className="px-4 sm:px-6 py-2 sm:py-3 border-b border-[#c7a86b]/20 bg-gradient-to-r from-[#c7a86b]/10 via-transparent to-[#c7a86b]/10">

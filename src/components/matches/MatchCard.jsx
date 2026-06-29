@@ -10,7 +10,14 @@ export function MatchCard({ match }) {
   const isOsman = match.competition === 'Osman Perez Freire'
 
   return (
-    <div className={`bg-neutral-900/70 border rounded-2xl p-3 sm:p-4 md:p-5 hover:bg-neutral-900/90 transition-all duration-200 group ${isOsman ? 'border-red-500/30 hover:border-red-500/50' : 'border-white/8 hover:border-white/15'}`}>
+    <div 
+      className={`border rounded-2xl p-3 sm:p-4 md:p-5 transition-all duration-300 group relative overflow-hidden hover:-translate-y-1 ${isOsman ? 'border-red-500/30 hover:border-red-500/50 hover:shadow-[0_8px_30px_rgba(239,68,68,0.15)]' : 'border-[#c7a86b]/20 hover:border-[#c7a86b]/40 hover:shadow-[0_8px_30px_rgba(199,168,107,0.15)]'}`}
+      style={{
+        background: isOsman 
+          ? `radial-gradient(120% 120% at 50% -20%, rgba(239,68,68,0.15) 0%, rgba(23,23,23,0.95) 50%, rgba(10,10,10,0.98) 100%)`
+          : `radial-gradient(120% 120% at 50% -20%, rgba(255,255,255,0.1) 0%, rgba(23,23,23,0.95) 50%, rgba(10,10,10,0.98) 100%)`,
+      }}
+    >
       {/* Header */}
       <div className="flex justify-between items-start mb-3 sm:mb-4">
         <span className="px-2 py-0.5 sm:px-2.5 sm:py-1 rounded-full text-[9px] sm:text-[10px] font-bold uppercase tracking-wider bg-white/10 text-white border border-white/20">

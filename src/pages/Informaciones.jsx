@@ -53,7 +53,10 @@ export default function Informaciones() {
         {newsMock.map((news) => (
           <div
             key={news.id}
-            className="overflow-hidden border border-white/8 rounded-xl bg-neutral-900/60 hover:border-white/15 transition-all duration-200 group cursor-pointer"
+            className="relative overflow-hidden border border-[#c7a86b]/15 rounded-xl transition-all duration-300 group cursor-pointer hover:-translate-y-1 hover:border-[#c7a86b]/40 hover:shadow-[0_8px_30px_rgba(199,168,107,0.15)]"
+            style={{
+              background: `radial-gradient(100% 100% at 50% 0%, rgba(255,255,255,0.06) 0%, transparent 100%), linear-gradient(180deg, rgba(23,23,23,0.95) 0%, rgba(10,10,10,0.98) 100%)`
+            }}
             onClick={() => setSelectedNews(news)}
           >
             <div className="p-4 sm:p-5">
