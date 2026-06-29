@@ -1,6 +1,7 @@
 import React from 'react'
 import PageLayout, { PageHeader } from '../components/layout/PageLayout'
 import { StandingsTable } from '../components/standings/StandingsTable'
+import { Trophy } from 'lucide-react'
 
 const clubNames = [
   'Apolo',
@@ -96,28 +97,38 @@ export default function Tabla() {
         description="Sigue el rendimiento de nuestros equipos en la Liga Regional."
       />
 
-      <div className="max-w-4xl mx-auto">
-        <div className="bg-neutral-900/60 border border-white/8 rounded-2xl overflow-hidden">
-
-          <div className="px-4 py-3 border-b border-white/8">
-            <h3 className="font-outfit font-bold text-sm sm:text-base text-white">
-              {selectedDivision === 'General' ? 'Tabla General' : `División ${selectedDivision}`}
-            </h3>
+      <div className="max-w-5xl mx-auto ">
+        <div className="bg-neutral-900/70 border border-[#c7a86b]/20 rounded-2xl overflow-hidden shadow-2xl">
+          
+          {/* Main header */}
+          <div className="px-4 sm:px-6 py-2 sm:py-3 border-b border-[#c7a86b]/20 bg-gradient-to-r from-[#c7a86b]/10 via-transparent to-[#c7a86b]/10">
+            <div className="flex items-center gap-2">
+              <div className="w-6 h-6 sm:w-8 sm:h-8 rounded-lg bg-[#c7a86b]/10 border border-[#c7a86b]/30 flex items-center justify-center">
+                <Trophy size={12} sm={16} className="text-[#c7a86b]" />
+              </div>
+              <h3 className="font-outfit font-bold text-sm sm:text-lg text-white">
+                {selectedDivision === 'General' ? 'General' : `División ${selectedDivision}`}
+              </h3>
+            </div>
           </div>
 
-          <div className="px-4 py-4 border-b border-white/8">
-            <div className="flex gap-2 overflow-x-auto scrollbar-hide snap-x snap-mandatory pb-1">
+          {/* Filters section */}
+          <div className="px-3 sm:px-4 py-2 sm:py-3 border-b border-[#c7a86b]/10 bg-neutral-900/95 backdrop-blur-sm">
+            <div className="flex flex-wrap gap-1 sm:gap-1.5 justify-center">
               {divisionsList.map((div) => {
                 const isSelected = selectedDivision === div
                 return (
                   <button
                     key={div}
                     onClick={() => setSelectedDivision(div)}
-                    className={`px-3 py-1.5 rounded-lg text-xs font-semibold transition-all duration-150 border shrink-0 snap-start
-                ${isSelected
-                        ? 'bg-[#c7a86b]/20 text-white border-[#c7a86b] shadow-[0_0_10px_rgba(199,168,107,0.3)]'
-                        : 'text-[#c7a86b] border-[#c7a86b]/30 hover:bg-[#c7a86b]/10 hover:border-[#c7a86b]/50'
-                      }`}
+                    className={`
+                      px-1.5 sm:px-2 py-0.5 sm:py-1 text-[7px] sm:text-[9px] font-bold uppercase tracking-wider
+                      transition-all duration-200 border shrink-0
+                      ${isSelected
+                        ? 'bg-[#c7a86b]/15 text-[#c7a86b] border-[#c7a86b] shadow-[0_0_6px_rgba(199,168,107,0.12)]'
+                        : 'bg-neutral-900/50 text-neutral-400 border-white/10 hover:border-[#c7a86b]/40 hover:text-[#c7a86b]/80 hover:bg-[#c7a86b]/5'
+                      }
+                    `}
                   >
                     {div}
                   </button>
@@ -126,7 +137,10 @@ export default function Tabla() {
             </div>
           </div>
 
-          <StandingsTable standings={standingsData} />
+          {/* Table */}
+          <div className="px-3 sm:px-4 sm:px-6 py-3">
+            <StandingsTable standings={standingsData} />
+          </div>
 
         </div>
       </div>

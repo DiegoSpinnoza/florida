@@ -1,15 +1,61 @@
 import { upcomingFixtureConfig } from "../lib/fixtureConfig";
 import ParticleEffect from "../components/effects/ParticleEffect";
+import { useMemo } from "react";
 
 export default function Home() {
   const schedules = upcomingFixtureConfig?.schedules || [];
   const matchDay = schedules[0]?.day || "";
 
+  const polygonPoints = useMemo(() => {
+    const getRandomArbitrary = (min, max) => Math.random() * (max - min) + min;
+    const numeroDePoligonosCadaLado = 35;
+    const etapaPorEtapa = 100 / numeroDePoligonosCadaLado;
+    const alturaMaxima = 20;
+
+    let str = "";
+    for (let a = 0; a < 4; a++) {
+      for (let b = 0; b < numeroDePoligonosCadaLado; b++) {
+        const extensao = b * etapaPorEtapa;
+        const altura = Math.round(getRandomArbitrary(0, alturaMaxima));
+        if (a === 0) {
+          str += `${extensao}% ${altura}%, `;
+        } else if (a === 1) {
+          str += `${100 - altura}% ${extensao}%, `;
+        } else if (a === 2) {
+          str += `${100 - extensao}% ${100 - altura}%, `;
+        } else if (a === 3) {
+          str += `${altura}% ${100 - extensao}%, `;
+        }
+      }
+    }
+    return str.slice(0, -2);
+  }, []);
+
   return (
-    <div className="relative flex flex-col min-h-[100svh] overflow-hidden atmospheric-split">
-      {/* TEXTURAS */}
+    <div className="relative flex flex-col h-full overflow-hidden atmospheric-split">
       <div
-        className="absolute inset-0 z-10 pointer-events-none"
+        className="w-[200vh] h-6 z-20 border-2 border-white absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 -rotate-46 animate-fade-in"
+        style={{
+          background:
+            "radial-gradient(circle, rgba(255,255,255,0.9) 0%, rgba(255,255,255,0.5) 40%, rgba(255,255,255,0.2) 70%, rgba(255,255,255,0) 100%)",
+        }}
+      />
+      <div className="absolute inset-0 z-0">
+        {/* TOP (oscuro) */}
+
+        {/* BOTTOM (color rosa) */}
+        {/* <div
+          className="absolute inset-0"
+          style={{
+            background: "linear-gradient(180deg, #fe97b515 0%, #fe97b508 100%)",
+            clipPath: "polygon(20% 100%, 100% -40%, 100% 100%, 0 100%)",
+          }}
+        /> */}
+      </div>
+      {/* TEXTURAS */}
+
+      <div
+        className="absolute inset-0 z-10 pointer-events-none animate-fade-in"
         style={{
           backgroundImage:
             "url('https://www.transparenttextures.com/patterns/stardust.png')",
@@ -18,12 +64,11 @@ export default function Home() {
       />
 
       {/* PARTICLE EFFECT */}
-      <ParticleEffect />
 
       {/* FADE INFERIOR */}
-      <div className="absolute bottom-0 left-0 right-0 h-40 z-20 pointer-events-none bg-gradient-to-t from-zinc-900 via-zinc-900/60 to-transparent" />
+      <div className="absolute bottom-0 left-0 right-0 h-40 z-20 pointer-events-none bg-gradient-to-t from-zinc-900 via-zinc-900/60 to-transparent animate-fade-in" />
       <div
-        className="absolute inset-0 z-10 pointer-events-none opacity-40"
+        className="absolute inset-0 z-10 pointer-events-none opacity-40 animate-fade-in"
         style={{
           background:
             "radial-gradient(circle at center, transparent, rgba(0,0,0,0.4))",
@@ -32,9 +77,9 @@ export default function Home() {
       />
 
       {/* CONTENIDO PRINCIPAL */}
-      <div className="relative z-30 flex flex-col items-center justify-center flex-1 px-4 md:px-12 pt-14 sm:pt-16 md:pt-[4.5rem] pb-4">
+      <div className="relative z-30 flex flex-col items-center justify-center flex-1 px-4 md:px-12 pb-4">
         {/* BADGE */}
-        <div className="mb-6 md:mb-10">
+        <div className="mb-4 md:mb-6 animate-fade-in-up animate-delay-100">
           <span className="font-mono text-[9px] md:text-xs text-[#c7a86b] uppercase tracking-[0.4em] px-3 py-1 md:px-6 md:py-2 rounded-full bg-black/80 border-1 border-[#c7a86b]/20 backdrop-blur-sm">
             Fecha 12
           </span>
@@ -55,46 +100,47 @@ export default function Home() {
           "
         >
           {/* FLORIDA */}
-          <div className="flex flex-col items-center text-center lg:w-5/12">
+          <div className="flex flex-col items-center text-center lg:w-5/12 animate-fade-in-up animate-delay-200">
             <img
               src="/images/florida.svg"
               alt="Florida"
               className="
-    w-28 h-28 sm:w-36 sm:h-36 md:w-52 md:h-52 lg:w-64 lg:h-64 xl:w-80 xl:h-80
+    w-24 h-24 sm:w-32 sm:h-32 md:w-40 md:h-40 lg:w-48 lg:h-48 xl:w-56 xl:h-56
     object-contain
     drop-shadow-[0_0_30px_rgba(255,255,255,0.2)]
   "
             />
 
-            <h2 className="text-3xl sm:text-5xl lg:text-6xl xl:text-8xl text-white uppercase italic">
+            <h2 className="text-2xl sm:text-4xl lg:text-5xl xl:text-6xl text-white uppercase italic">
               FLORIDA
             </h2>
           </div>
 
           {/* VS */}
-          <div className="flex items-center justify-center lg:w-2/12 shrink-0 relative">
+          <div className="flex items-center justify-center lg:w-2/12 shrink-0 relative animate-fade-in-up animate-delay-300">
             {/* Golden glow backdrop */}
             <div
               className="absolute inset-0 flex items-center justify-center"
               style={{
-                filter: 'blur(60px)',
+                filter: "blur(60px)",
                 opacity: 0.6,
               }}
             >
               <div
-                className="w-32 h-32 sm:w-40 sm:h-40 md:w-48 md:h-48 lg:w-56 lg:h-56 xl:w-64 xl:h-64 rounded-full"
+                className="w-24 h-24 sm:w-32 sm:h-32 md:w-40 md:h-40 lg:w-48 lg:h-48 xl:w-56 xl:h-56 rounded-full"
                 style={{
-                  background: 'radial-gradient(circle, #c7a86b 0%, transparent 70%)',
+                  background:
+                    "radial-gradient(circle, #c7a86b 0%, transparent 70%)",
                 }}
               />
             </div>
             <h1
               className="
                 font-anybody
-                text-[60px]
-                sm:text-[90px]
-                lg:text-[120px]
-                xl:text-[160px]
+                text-[50px]
+                sm:text-[70px]
+                lg:text-[100px]
+                xl:text-[140px]
                 text-white
                 italic
                 vs-glow
@@ -107,42 +153,41 @@ export default function Home() {
           </div>
 
           {/* CHW */}
-          <div className="flex flex-col items-center text-center lg:w-5/12">
+          <div className="flex flex-col items-center text-center lg:w-5/12 animate-fade-in-up animate-delay-400">
             <img
               src="/images/chw.png"
               alt="Chile Wanderers"
               className="
-    w-24 h-24 sm:w-36 sm:h-36 md:w-52 md:h-52 lg:w-64 lg:h-64 xl:w-80 xl:h-80
+    w-20 h-20 sm:w-32 sm:h-32 md:w-40 md:h-40 lg:w-48 lg:h-48 xl:w-56 xl:h-56
     object-contain
     drop-shadow-[0_0_18px_#fe97b5]
   "
             />
 
-            <h2 className="text-3xl sm:text-5xl lg:text-6xl xl:text-8xl text-black uppercase italic">
+            <h2 className="text-2xl sm:text-4xl lg:text-5xl xl:text-6xl text-black uppercase italic">
               C.WANDERERS
             </h2>
           </div>
-
         </div>
-        <div className="relative z-30 w-full flex flex-col items-center px-12 pt-6">
+        <div className="relative z-30 w-full flex flex-col items-center px-8 pt-4 animate-fade-in-up animate-delay-500">
           {matchDay && (
-            <div className="mb-2 flex flex-col text-white font-mono text-[12px] gap-2 uppercase tracking-widest ">
+            <div className="mb-2 flex flex-col text-white font-mono text-[10px] gap-1 uppercase tracking-widest">
               <span className="text-center font-bold">{matchDay}</span>
-              <span className="text-center text-[9px]">
+              <span className="text-center text-[8px]">
                 Osman Perez Freire, Valparaíso
               </span>
             </div>
           )}
 
-          <div className="w-full max-w-2xl bg-black/30 backdrop-blur-md py-2 rounded-lg border-1 border-[#c7a86b]/20">
+          <div className="w-full max-w-xl bg-black/30 backdrop-blur-md py-2 px-4 rounded-lg border-1 border-[#c7a86b]/20">
             <div className="grid grid-cols-3 sm:grid-cols-4 gap-2 md:gap-3">
-              {schedules.map((sch, idx) => (
-                <div key={idx} className="flex flex-col items-center">
-                  <span className="font-mono text-[8px] sm:text-[10px] uppercase text-white/60 text-center">
+              {schedules.map((sch, index) => (
+                <div key={index} className="flex flex-col items-center">
+                  <span className="font-mono text-[7px] sm:text-[8px] uppercase text-white/60 text-center">
                     {sch.division}
                   </span>
 
-                  <span className="font-anybody text-xs sm:text-lg md:text-2xl italic font-black text-white">
+                  <span className="font-anybody text-xs sm:text-sm md:text-lg italic font-black text-white">
                     {sch.time}
                   </span>
                 </div>
@@ -151,9 +196,6 @@ export default function Home() {
           </div>
         </div>
       </div>
-
-      {/* HORARIOS */}
-
     </div>
   );
 }

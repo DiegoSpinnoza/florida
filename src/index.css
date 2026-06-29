@@ -43,6 +43,10 @@
    DESIGN TOKENS — DARK THEME
    ============================================= */
 :root {
+  /* Theme Colors */
+  --color-theme-gold: #928f8b;
+  --color-theme-midnight: #1d1c1c;
+
   /* Accent Color - #c7a86b */
   --accent: #c7a86b;
   --accent-light: #d4b87a;
@@ -65,8 +69,8 @@
   --shadow-lg: 0 12px 40px rgba(0, 0, 0, 0.6), 0 4px 12px rgba(0, 0, 0, 0.4);
   --shadow-glow-accent: 0 0 30px rgba(199, 168, 107, 0.25);
 
-  /* Navbar offset — synced with Navbar heights (h-16 / h-18 / h-20) */
-  --navbar-height: 4rem;
+  /* Navbar offset — synced with Navbar heights (h-14 / h-16 / h-20) */
+  --navbar-height: 3.5rem;
 }
 
 /* =============================================
@@ -85,7 +89,7 @@ html {
 
 @media (min-width: 640px) {
   :root {
-    --navbar-height: 4.5rem;
+    --navbar-height: 4rem;
   }
 }
 
@@ -103,6 +107,7 @@ body {
   -moz-osx-font-smoothing: grayscale;
   overflow-x: hidden;
   margin: 0;
+  background: radial-gradient(ellipse 70% 45% at 50% 0%, color-mix(in srgb, var(--color-theme-gold) 16%, transparent) 0%, transparent 65%), linear-gradient(180deg, var(--color-theme-midnight) 0%, #171717 100%);
 }
 
 /* =============================================
@@ -391,6 +396,34 @@ h6 {
   }
 }
 
+.animate-fade-in {
+  animation: fadeIn 0.6s ease-out forwards;
+}
+
+.animate-fade-in-up {
+  animation: fadeInUp 0.8s ease-out forwards;
+}
+
+.animate-delay-100 {
+  animation-delay: 0.1s;
+}
+
+.animate-delay-200 {
+  animation-delay: 0.2s;
+}
+
+.animate-delay-300 {
+  animation-delay: 0.3s;
+}
+
+.animate-delay-400 {
+  animation-delay: 0.4s;
+}
+
+.animate-delay-500 {
+  animation-delay: 0.5s;
+}
+
 @keyframes float {
 
   0%,
@@ -491,7 +524,13 @@ h6 {
   width: 100%;
   max-width: 1280px;
   margin: 0 auto;
-  padding: 0 1.5rem;
+  padding: 0 1rem;
+}
+
+@media (min-width: 640px) {
+  .container-app {
+    padding: 0 1.5rem;
+  }
 }
 
 @media (min-width: 768px) {
@@ -509,10 +548,25 @@ h6 {
 /* Navbar offset — synced with Navbar heights (h-14 / h-16 / ~4.5rem) */
 .display-title {
   font-family: 'Anybody', 'Outfit', sans-serif;
-  font-size: clamp(1.75rem, 4vw, 2.75rem);
+  font-size: clamp(1.25rem, 5vw, 2.25rem);
   font-weight: 800;
-  line-height: 1.15;
+  line-height: 1.2;
   color: var(--text-primary);
+}
+
+@media (min-width: 768px) {
+  .display-title {
+    font-size: clamp(1.75rem, 4vw, 2.75rem);
+  }
+}
+
+.font-jersey {
+  font-family: 'Jersey', 'Athletic', 'Anybody', 'Outfit', sans-serif;
+}
+
+@keyframes bounce {
+  0%, 100% { transform: translate(-50%, -20px); }
+  50% { transform: translate(-50%, 20px); }
 }
 
 .gradient-text-green {
@@ -520,6 +574,15 @@ h6 {
   -webkit-background-clip: text;
   background-clip: text;
   -webkit-text-fill-color: transparent;
+}
+.boxers-grain {
+  background-image: radial-gradient(rgba(199, 168, 107, .05) 1px, transparent 1px);
+  background-size: 22px 22px;
+  mask-image: radial-gradient(ellipse at center, black 30%, transparent 85%);
+  pointer-events: none;
+  position: absolute;
+  inset: 0;
+  z-index: -10;
 }
 
 .page-section {
