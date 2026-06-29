@@ -109,6 +109,15 @@ body {
   margin: 0;
   background: radial-gradient(ellipse 70% 45% at 50% 0%, color-mix(in srgb, var(--color-theme-gold) 16%, transparent) 0%, transparent 65%), linear-gradient(180deg, var(--color-theme-midnight) 0%, #171717 100%);
 }
+.sort-label-mark {
+    display: inline-block;
+    width: 5px;
+    height: 5px;
+    background: #c7a86b;
+    transform: rotate(45deg);
+    box-shadow: 0 0 6px 
+color-mix(in srgb, #c7a86b 60%, transparent);
+}
 
 /* =============================================
    TYPOGRAPHY

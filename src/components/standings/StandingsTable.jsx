@@ -27,12 +27,11 @@ export function StandingsTable({ standings, limit }) {
                 key={team.team_name}
                 className={`border-b transition-colors ${
                   isFlorida 
-                    ? 'sticky z-10 bg-[#c7a86b]/20 hover:bg-[#c7a86b]/25 border-[#c7a86b]/30 shadow-lg' :
+                    ? 'bg-[#c7a86b]/20 hover:bg-[#c7a86b]/25 border-[#c7a86b]/30' :
                   isRival 
                     ? 'bg-red-500/8 hover:bg-red-500/15 border-red-500/20' :
                   'hover:bg-white/4 border-white/4'
                 }`}
-                style={isFlorida ? { top: '40px' } : {}}
               >
                 {/* Position */}
                 <td className="px-1 py-1.5 text-center">

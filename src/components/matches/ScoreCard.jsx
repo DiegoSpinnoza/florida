@@ -24,36 +24,31 @@ export function ScoreCard({ match }) {
   }
 
   return (
-    <Card className={`p-5 transition-all duration-300 ${resultClasses}`}>
+    <Card className={`p-3 sm:p-5 transition-all duration-300 ${resultClasses}`}>
       {/* Header */}
-      <div className="flex justify-between items-center mb-4 pb-3 border-b border-neutral-100">
-        <span className="text-xs text-neutral-400 font-semibold">
+      <div className="flex justify-between items-center mb-3 sm:mb-4 pb-2 sm:pb-3 border-b border-neutral-100">
+        <span className="text-[10px] sm:text-xs text-neutral-400 font-semibold">
           {format(date, "d MMM, yyyy", { locale: es })}
         </span>
         <div className="flex gap-2 items-center">
           {match.status === 'live' && (
-            <span className="flex items-center gap-1.5 text-xs font-bold text-red-600 uppercase">
+            <span className="flex items-center gap-1.5 text-[10px] sm:text-xs font-bold text-red-600 uppercase">
               <span className="w-2 h-2 bg-red-600 rounded-full animate-ping" /> Vivo
             </span>
           )}
-          {/* {match.competition && (
-            <span className="text-[10px] font-bold text-white uppercase tracking-widest bg-white/10 border border-white/20 px-2 py-0.5 rounded-full">
-              {match.competition}
-            </span>
-          )} */}
         </div>
       </div>
 
       {/* Teams & Scores */}
-      <div className="flex flex-col gap-3.5">
+      <div className="flex flex-col gap-2.5 sm:gap-3.5">
         {/* Home */}
         <div className="flex justify-between items-center">
-          <span className={`font-outfit font-bold text-sm ${
+          <span className={`font-outfit font-bold text-[13px] sm:text-sm ${
             isFloridaHome ? 'text-white' : 'text-neutral-700'
           }`}>
             {match.home_team}
           </span>
-          <span className={`font-outfit font-black text-2xl ${
+          <span className={`font-outfit font-black text-xl sm:text-2xl ${
             match.home_score !== null && match.home_score > (match.away_score || 0)
               ? 'text-neutral-800'
               : 'text-neutral-400'
@@ -64,12 +59,12 @@ export function ScoreCard({ match }) {
 
         {/* Away */}
         <div className="flex justify-between items-center">
-          <span className={`font-outfit font-bold text-sm ${
+          <span className={`font-outfit font-bold text-[13px] sm:text-sm ${
             isFloridaAway ? 'text-white' : 'text-neutral-700'
           }`}>
             {match.away_team}
           </span>
-          <span className={`font-outfit font-black text-2xl ${
+          <span className={`font-outfit font-black text-xl sm:text-2xl ${
             match.away_score !== null && match.away_score > (match.home_score || 0)
               ? 'text-neutral-800'
               : 'text-neutral-400'

@@ -32,7 +32,7 @@ function PublicLayout() {
     <div className="flex flex-col h-screen relative overflow-hidden">
       {!isHome && <div className="boxers-grain" />}
       <Navbar />
-      <main className={`flex-1 relative z-10 overflow-y-auto ${isHome ? '' : 'pt-16 pb-16 md:pt-16 md:pb-0'}`}>
+      <main className={`flex-1 relative z-10 overflow-y-auto ${isHome ? '' : 'pt-8 pb-20 md:pt-16 md:pb-0'}`}>
         <Outlet key={pathname} />
       </main>
     </div>

@@ -97,24 +97,40 @@ export default function Tabla() {
         description="Sigue el rendimiento de nuestros equipos en la Liga Regional."
       />
 
-      <div className="max-w-5xl mx-auto ">
-        <div className="bg-neutral-900/70 border border-[#c7a86b]/20 rounded-2xl overflow-hidden shadow-2xl">
-          
-          {/* Main header */}
-          <div className="px-4 sm:px-6 py-2 sm:py-3 border-b border-[#c7a86b]/20 bg-gradient-to-r from-[#c7a86b]/10 via-transparent to-[#c7a86b]/10">
-            <div className="flex items-center gap-2">
-              <div className="w-6 h-6 sm:w-8 sm:h-8 rounded-lg bg-[#c7a86b]/10 border border-[#c7a86b]/30 flex items-center justify-center">
-                <Trophy size={12} sm={16} className="text-[#c7a86b]" />
-              </div>
-              <h3 className="font-outfit font-bold text-sm sm:text-lg text-white">
-                {selectedDivision === 'General' ? 'General' : `División ${selectedDivision}`}
-              </h3>
-            </div>
-          </div>
+      <div className="max-w-5xl mx-auto">
+        {/* Filters section */}
+        <div
+          className="relative px-3 sm:px-4 py-2 sm:py-3 border border-[#c7a86b]/25 mb-4 sm:mb-6 backdrop-blur-sm overflow-hidden"
+          style={{
+            background: `
+      radial-gradient(circle at top, rgba(199,168,107,0.05) 0%, transparent 60%),
+      radial-gradient(circle at bottom right, rgba(199,168,107,0.025) 0%, transparent 65%),
+      linear-gradient(180deg, rgba(23,23,23,0.98) 0%, rgba(10,10,10,0.98) 100%)
+    `,
+          }}
+        >
+          {/* Esquina superior izquierda */}
+          <div className="absolute top-0 left-0 w-2 h-2 border-t-2 border-l-2 border-[#c7a86b]/50" />
 
-          {/* Filters section */}
-          <div className="px-3 sm:px-4 py-2 sm:py-3 border-b border-[#c7a86b]/10 bg-neutral-900/95 backdrop-blur-sm">
-            <div className="flex flex-wrap gap-1 sm:gap-1.5 justify-center">
+          {/* Esquina superior derecha */}
+          <div className="absolute top-0 right-0 w-2 h-2 border-t-1 border-r-1 border-[#c7a86b]/50" />
+
+          {/* Esquina inferior izquierda */}
+          <div className="absolute bottom-0 left-0 w-2 h-2 border-b-2 border-l-2 border-[#c7a86b]/50" />
+
+          {/* Esquina inferior derecha */}
+          <div className="absolute bottom-0 right-0 w-2 h-2 border-b-2 border-r-2 border-[#c7a86b]/50" />
+
+          {/* Contenido */}
+          <div className="flex flex-wrap items-center justify-between gap-3">
+            <div className='flex gap-2 items-center text-[#c7a86b] sm:py-1 text-[8px] sm:text-[10px]'>
+              <span aria-hidden="true" className="sort-label-mark"></span>
+              <span className="font-bold uppercase tracking-wider">
+                Ordenar por
+              </span>
+            </div>
+
+            <div className="flex flex-wrap gap-1 sm:gap-1.5">
               {divisionsList.map((div) => {
                 const isSelected = selectedDivision === div
                 return (
@@ -122,18 +138,55 @@ export default function Tabla() {
                     key={div}
                     onClick={() => setSelectedDivision(div)}
                     className={`
-                      px-1.5 sm:px-2 py-0.5 sm:py-1 text-[7px] sm:text-[9px] font-bold uppercase tracking-wider
-                      transition-all duration-200 border shrink-0
-                      ${isSelected
-                        ? 'bg-[#c7a86b]/15 text-[#c7a86b] border-[#c7a86b] shadow-[0_0_6px_rgba(199,168,107,0.12)]'
-                        : 'bg-neutral-900/50 text-neutral-400 border-white/10 hover:border-[#c7a86b]/40 hover:text-[#c7a86b]/80 hover:bg-[#c7a86b]/5'
+    px-1.5 sm:px-2 py-0.5 sm:py-1 text-[8px] sm:text-[9px]
+    font-bold uppercase tracking-wider
+    transition-all duration-200 border shrink-0 rounded-sm
+
+    hover:-translate-y-[1px]
+    hover:shadow-[0_6px_14px_rgba(199,168,107,0.25)]
+    hover:border-[#c7a86b]/60
+    hover:brightness-110
+
+    ${isSelected
+                        ? 'text-black border-[#c7a86b] shadow-[0_0_14px_rgba(199,168,107,0.45)] hover:shadow-[0_0_18px_rgba(199,168,107,0.55)]'
+                        : 'bg-black text-neutral-400 border-[#c7a86b]/40 hover:bg-[#c7a86b]/5'
                       }
-                    `}
+  `}
+                    style={
+                      isSelected
+                        ? {
+                          background: `
+            linear-gradient(
+              180deg,
+              color-mix(in srgb, #c7a86b 95%, white) 0%,
+              #c7a86b 65%,
+              color-mix(in srgb, #c7a86b 75%, black) 100%
+            )
+          `,
+                          boxShadow: "0 0 16px rgba(199,168,107,0.35)"
+                        }
+                        : undefined
+                    }
                   >
                     {div}
                   </button>
                 )
               })}
+            </div>
+          </div>
+        </div>
+
+        <div className="bg-neutral-900/70 border border-[#c7a86b]/20 rounded-2xl overflow-hidden shadow-2xl">
+
+          {/* Main header */}
+          <div className="px-4 sm:px-6 py-2 sm:py-3 border-b border-[#c7a86b]/20 bg-gradient-to-r from-[#c7a86b]/10 via-transparent to-[#c7a86b]/10">
+            <div className="flex items-center gap-2">
+              <div className="w-6 h-6 sm:w-8 sm:h-8 rounded-lg bg-[#c7a86b]/10 border border-[#c7a86b]/30 flex items-center justify-center">
+                <Trophy size={12} className="text-[#c7a86b]" />
+              </div>
+              <h3 className="font-outfit font-bold text-sm sm:text-lg text-white">
+                {selectedDivision === 'General' ? 'General' : `División ${selectedDivision}`}
+              </h3>
             </div>
           </div>
 

@@ -2,7 +2,7 @@ import TopHeader from './TopHeader';
 
 export function PageHeader({ label, title, highlight, description, className = '' }) {
   return (
-    <div className={`mb-6 md:mb-8 text-center max-w-3xl mx-auto pt-2 md:pt-4 pb-6 md:pb-8 ${className}`}>
+    <div className={`mb-2 md:mb-8 text-center max-w-3xl mx-auto pt-2 md:pt-4 pb-6 md:pb-8 ${className}`}>
       {label && (
         <div className="section-label justify-center mb-3 md:mb-4">
           {label}
