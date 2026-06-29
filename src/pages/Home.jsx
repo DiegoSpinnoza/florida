@@ -53,18 +53,6 @@ export default function Home() {
         /> */}
       </div>
       {/* TEXTURAS */}
-
-      <div
-        className="absolute inset-0 z-10 pointer-events-none animate-fade-in"
-        style={{
-          backgroundImage:
-            "url('https://www.transparenttextures.com/patterns/stardust.png')",
-          opacity: 0.3,
-        }}
-      />
-
-      {/* PARTICLE EFFECT */}
-
       {/* FADE INFERIOR */}
       <div className="absolute bottom-0 left-0 right-0 h-40 z-20 pointer-events-none bg-gradient-to-t from-zinc-900 via-zinc-900/60 to-transparent animate-fade-in" />
       <div
@@ -76,8 +64,25 @@ export default function Home() {
         }}
       />
 
+      {/* LOGO OSMAN PEREZ FREIRE */}
+      <div className="absolute top-2 left-2 z-50 animate-fade-in flex items-center gap-2">
+        <img
+          src="/images/osmanPrerezFreire.png"
+          alt="Osman Perez Freire"
+          className="w-12 h-12 object-contain grayscale opacity-60"
+        />
+        <div className="flex flex-col">
+          <span className="text-neutral-400 font-outfit font-bold text-[10px] uppercase tracking-wider">
+            Osman
+          </span>
+          <span className="text-neutral-400 font-outfit font-bold text-[10px] uppercase tracking-wider">
+            Perez Freire
+          </span>
+        </div>
+      </div>
+      
       {/* CONTENIDO PRINCIPAL */}
-      <div className="relative z-30 flex flex-col items-center justify-center flex-1 px-4 md:px-12 pb-4">
+      <div className="relative z-30 flex flex-col items-center justify-center flex-1 px-4 md:px-12 pb-4 pt-0 -mt-8">
         {/* BADGE */}
         <div className="mb-4 md:mb-6 animate-fade-in-up animate-delay-100">
           <span className="font-mono text-[9px] md:text-xs text-[#c7a86b] uppercase tracking-[0.4em] px-3 py-1 md:px-6 md:py-2 rounded-full bg-black/80 border-1 border-[#c7a86b]/20 backdrop-blur-sm">
@@ -105,13 +110,13 @@ export default function Home() {
               src="/images/florida.svg"
               alt="Florida"
               className="
-    w-16 h-16 sm:w-24 sm:h-24 md:w-40 md:h-40 lg:w-48 lg:h-48 xl:w-56 xl:h-56
+    w-40 h-40 sm:w-40 sm:h-40 md:w-40 md:h-40 lg:w-48 lg:h-48 xl:w-56 xl:h-56
     object-contain
     drop-shadow-[0_0_30px_rgba(255,255,255,0.2)]
   "
             />
 
-            <h2 className="text-sm sm:text-2xl md:text-4xl lg:text-5xl xl:text-6xl text-white uppercase italic mt-1 sm:mt-2">
+            <h2 className="text-xl sm:text-2xl md:text-4xl lg:text-5xl xl:text-6xl text-white uppercase italic mt-1 sm:mt-2">
               FLORIDA
             </h2>
           </div>
@@ -127,7 +132,7 @@ export default function Home() {
               }}
             >
               <div
-                className="w-16 h-16 sm:w-24 sm:h-24 md:w-40 md:h-40 lg:w-48 lg:h-48 xl:w-56 xl:h-56 rounded-full"
+                className="w-20 h-20 sm:w-20 sm:h-20 md:w-40 md:h-40 lg:w-48 lg:h-48 xl:w-56 xl:h-56 rounded-full"
                 style={{
                   background:
                     "radial-gradient(circle, #c7a86b 0%, transparent 70%)",
@@ -137,8 +142,8 @@ export default function Home() {
             <h1
               className="
                 font-anybody
-                text-[28px]
-                sm:text-[50px]
+                text-[40px]
+                sm:text-[40px]
                 md:text-[70px]
                 lg:text-[100px]
                 xl:text-[140px]
@@ -147,6 +152,7 @@ export default function Home() {
                 vs-glow
                 select-none
                 relative z-10
+                text-stroke-white
               "
             >
               VS
@@ -159,36 +165,48 @@ export default function Home() {
               src="/images/chw.png"
               alt="Chile Wanderers"
               className="
-    w-16 h-16 sm:w-24 sm:h-24 md:w-40 md:h-40 lg:w-48 lg:h-48 xl:w-56 xl:h-56
+    w-40 h-40 sm:w-40 sm:h-40 md:w-40 md:h-40 lg:w-48 lg:h-48 xl:w-56 xl:h-56
     object-contain
     drop-shadow-[0_0_18px_#fe97b5]
   "
             />
 
-            <h2 className="text-sm sm:text-2xl md:text-4xl lg:text-5xl xl:text-6xl text-black uppercase italic mt-1 sm:mt-2">
+            <h2 className="text-xl sm:text-2xl md:text-4xl lg:text-5xl xl:text-6xl text-black uppercase italic mt-1 sm:mt-2">
               C.WANDERERS
             </h2>
           </div>
         </div>
         <div className="relative z-30 w-full flex flex-col items-center px-8 pt-4 animate-fade-in-up animate-delay-500">
           {matchDay && (
-            <div className="mb-2 flex flex-col text-white font-mono text-[10px] gap-1 uppercase tracking-widest">
-              <span className="text-center font-bold">{matchDay}</span>
-              <span className="text-center text-[8px]">
+            <div className="mb-2 flex flex-col font-mono text-[12px] gap-1 uppercase tracking-widest">
+              <span 
+                className="text-center font-bold text-white"
+                style={{
+                  textShadow: '2px 2px 4px rgba(0, 0, 0, 0.9), -1px -1px 2px rgba(0, 0, 0, 0.8)'
+                }}
+              >
+                {matchDay}
+              </span>
+              <span 
+                className="text-center text-[10px] text-white"
+                style={{
+                  textShadow: '1px 1px 2px rgba(0, 0, 0, 0.9), -1px -1px 1px rgba(0, 0, 0, 0.8)'
+                }}
+              >
                 Osman Perez Freire, Valparaíso
               </span>
             </div>
           )}
 
-          <div className="w-full max-w-xl bg-black/30 backdrop-blur-md py-2 px-4 rounded-lg border-1 border-[#c7a86b]/20">
+          <div className="w-full max-w-xl bg-black/30 backdrop-blur-md py-3 px-4 rounded-lg border-1 border-[#c7a86b]/20">
             <div className="grid grid-cols-3 sm:grid-cols-4 gap-2 md:gap-3">
               {schedules.map((sch, index) => (
                 <div key={index} className="flex flex-col items-center">
-                  <span className="font-mono text-[7px] sm:text-[8px] uppercase text-white/60 text-center">
+                  <span className="font-mono text-[9px] sm:text-[8px] uppercase text-white/60 text-center">
                     {sch.division}
                   </span>
 
-                  <span className="font-anybody text-xs sm:text-sm md:text-lg italic font-black text-white">
+                  <span className="font-anybody text-sm sm:text-sm md:text-lg italic font-black text-white">
                     {sch.time}
                   </span>
                 </div>

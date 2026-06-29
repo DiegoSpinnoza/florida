@@ -97,7 +97,7 @@ export default function Tabla() {
         description="Sigue el rendimiento de nuestros equipos en la Liga Regional."
       />
 
-      <div className="max-w-5xl mx-auto">
+      <div className="max-w-5xl mx-auto pb-8 md:pb-16">
         {/* Filters section */}
         <div
           className="relative px-3 sm:px-4 py-2 sm:py-3 border border-[#c7a86b]/25 mb-4 sm:mb-6 backdrop-blur-sm overflow-hidden"
@@ -175,15 +175,15 @@ export default function Tabla() {
           </div>
         </div>
 
-        <div 
-          className="border border-[#c7a86b]/20 rounded-2xl overflow-hidden shadow-[0_8px_30px_rgba(199,168,107,0.08)] relative"
+        <div
+          className="border border-[#c7a86b]/20 overflow-hidden shadow-[0_8px_30px_rgba(199,168,107,0.08)] relative"
           style={{
             background: `linear-gradient(145deg, rgba(255,255,255,0.05) 0%, rgba(23,23,23,0.9) 40%, rgba(10,10,10,0.95) 100%)`
           }}
         >
 
           {/* Main header */}
-          <div className="px-4 sm:px-6 py-2 sm:py-3 border-b border-[#c7a86b]/20 bg-gradient-to-r from-[#c7a86b]/10 via-transparent to-[#c7a86b]/10">
+          <div className="px-3 sm:px-6 py-2 sm:py-3 border-b border-[#c7a86b]/20 bg-gradient-to-r from-[#c7a86b]/10 via-transparent to-[#c7a86b]/10">
             <div className="flex items-center gap-2">
               <div className="w-6 h-6 sm:w-8 sm:h-8 rounded-lg bg-[#c7a86b]/10 border border-[#c7a86b]/30 flex items-center justify-center">
                 <Trophy size={12} className="text-[#c7a86b]" />
@@ -195,9 +195,7 @@ export default function Tabla() {
           </div>
 
           {/* Table */}
-          <div className="px-3 sm:px-4 sm:px-6 py-3">
-            <StandingsTable standings={standingsData} />
-          </div>
+          <StandingsTable standings={standingsData} />
 
         </div>
       </div>

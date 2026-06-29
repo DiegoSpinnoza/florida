@@ -6,8 +6,8 @@ export function StandingsTable({ standings, limit }) {
   return (
     <div className="overflow-x-auto">
       <table className="w-full border-collapse min-w-[320px]">
-        <thead className="sticky top-0 bg-neutral-900/98 z-20">
-          <tr className="border-b border-[#c7a86b]/30">
+        <thead className="sticky top-0 bg-neutral-900/95 z-20">
+          <tr className=" border-b border-[#c7a86b]/30">
             <th className="w-7 text-center text-[9px] font-bold text-neutral-400 uppercase tracking-[0.1em] px-1 py-2">Pos</th>
             <th className="text-left text-[9px] font-bold text-neutral-400 uppercase tracking-[0.1em] px-2 py-2">Equipo</th>
             <th className="w-7 text-center text-[9px] font-bold text-neutral-400 uppercase tracking-[0.1em] px-1 py-2" title="Partidos Jugados">PJ</th>
@@ -35,7 +35,7 @@ export function StandingsTable({ standings, limit }) {
                 style={isFlorida ? { background: 'linear-gradient(90deg, rgba(255,255,255,0.02) 0%, rgba(255,255,255,0.1) 50%, rgba(255,255,255,0.02) 100%)' } : {}}
               >
                 {/* Position */}
-                <td className="px-1 py-1.5 text-center">
+                <td className="px-4 py-1.5 text-center">
                   {team.position <= 3 ? (
                     <span className={`inline-flex items-center justify-center w-5 h-5 rounded-full text-white text-[10px] font-extrabold ${
                       team.position === 1 ? 'bg-gradient-to-br from-amber-400 to-amber-600'
@@ -73,7 +73,7 @@ export function StandingsTable({ standings, limit }) {
                 }`}>
                   {team.goal_difference > 0 ? `+${team.goal_difference}` : team.goal_difference}
                 </td>
-                <td className={`px-1 py-1.5 text-center font-black text-sm sm:text-base ${
+                <td className={`px-4 py-1.5 text-center font-black text-sm sm:text-base ${
                   isFlorida ? 'text-white' : isRival ? 'text-red-400' : 'text-[#c7a86b]'
                 }`}>{team.points}</td>
               </tr>
